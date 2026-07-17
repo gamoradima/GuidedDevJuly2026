@@ -22,6 +22,27 @@
   "A4": "5868488e-3c90-44a7-80b8-e61fe29fc6ef",
   "A5": "a06d1353-cc61-4bc8-9966-6934478f9914"
 }
++ MetaData.Schema.B2 {
+  "UId": "085fd1a1-97de-06ea-fb62-ded49951024d",
+  "A2": "PushMeButton_caption",
+  "A3": "5868488e-3c90-44a7-80b8-e61fe29fc6ef",
+  "A4": "5868488e-3c90-44a7-80b8-e61fe29fc6ef",
+  "A5": "a06d1353-cc61-4bc8-9966-6934478f9914"
+}
++ MetaData.Schema.B2 {
+  "UId": "267f08bc-3e6c-d1ad-aa0e-72021f8c7596",
+  "A2": "addRecord_d7msnsy_caption",
+  "A3": "5868488e-3c90-44a7-80b8-e61fe29fc6ef",
+  "A4": "5868488e-3c90-44a7-80b8-e61fe29fc6ef",
+  "A5": "a06d1353-cc61-4bc8-9966-6934478f9914"
+}
++ MetaData.Schema.B2 {
+  "UId": "c1c78fe5-6cf5-b55a-3732-8519390fc35f",
+  "A2": "addRecord_djjejl6_caption",
+  "A3": "5868488e-3c90-44a7-80b8-e61fe29fc6ef",
+  "A4": "5868488e-3c90-44a7-80b8-e61fe29fc6ef",
+  "A5": "a06d1353-cc61-4bc8-9966-6934478f9914"
+}
 = MetaData.Schema.B2.["fd9e5bd2-19ad-68b5-1356-fe7b39d36f28"].A4 "5868488e-3c90-44a7-80b8-e61fe29fc6ef"
 = MetaData.Schema.B2.["a77180d7-a9d0-5c7d-a47b-74c0545a1774"].A4 "5868488e-3c90-44a7-80b8-e61fe29fc6ef"
 = MetaData.Schema.B2.["a53e6c9a-741a-21de-9293-9d87d6014595"].A4 "5868488e-3c90-44a7-80b8-e61fe29fc6ef"
@@ -39,6 +60,9 @@
   "89b61305-8180-f9aa-5b17-0d7839e8a51d",
   "60d13dc0-5060-6e29-e0c9-fc21fd7051bd",
   "b23cd15f-9fcc-1762-db73-aacbb4397583",
+  "085fd1a1-97de-06ea-fb62-ded49951024d",
+  "267f08bc-3e6c-d1ad-aa0e-72021f8c7596",
+  "c1c78fe5-6cf5-b55a-3732-8519390fc35f",
   "fd9e5bd2-19ad-68b5-1356-fe7b39d36f28",
   "a77180d7-a9d0-5c7d-a47b-74c0545a1774",
   "a53e6c9a-741a-21de-9293-9d87d6014595",
@@ -56,7 +80,7 @@
 = MetaData.Schema.B6 "69f4b2c3-9e36-4a07-85b2-8978104e9984"
 = MetaData.Schema.HD1 "3b2e117f-8c6b-4ca5-80a2-7ebb497cddf9"
 + MetaData.Schema.HD15 1
-= MetaData.Schema.HD6 "define('{0}Structure', ['{0}Resources'], function(resources) {{return {{schemaUId:'{2}',schemaName:'{3}',parentSchemaUId:'{4}',extendParent:{5},type:Terrasoft.SchemaType.ANGULAR_SCHEMA,entitySchema:'',name:'',extend:'Terrasoft.model.BaseViewModel',schema:{{leftPanel:[],rightPanel:[],actions:[],analytics:[]}},methods:{{}},controlsConfig:{{}},customBindings:{{}},bindings:{{}},parameters:{{}},schemaVersion:0,optionalProperties:{{}},schemaDifferences:function(){{\n{1}\n}}}};}});"
+= MetaData.Schema.HD6 "define('{0}Structure', ['{0}Resources'], function(resources) {{return {{schemaUId:'{2}',schemaName:'{3}',parentSchemaUId:'{4}',extendParent:{5},type:Terrasoft.SchemaType.ANGULAR_SCHEMA,entitySchema:'',name:'',extend:'Terrasoft.model.BaseViewModel',schema:{{leftPanel:[],rightPanel:[],actions:[],analytics:[]}},methods:{{}},controlsConfig:{{}},customBindings:{{}},bindings:{{}},parameters:{{}},schemaVersion:1,optionalProperties:{{}},schemaDifferences:function(){{\n{1}\n}}}};}});"
 - MetaData.Schema.B7
 - MetaData.Schema.HD12
 + MetaData.Schema.B7 false
