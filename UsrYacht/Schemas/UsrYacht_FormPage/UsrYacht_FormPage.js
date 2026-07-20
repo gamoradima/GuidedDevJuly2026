@@ -3,6 +3,14 @@ define("UsrYacht_FormPage", /**SCHEMA_DEPS*/[]/**SCHEMA_DEPS*/, function/**SCHEM
 		viewConfigDiff: /**SCHEMA_VIEW_CONFIG_DIFF*/[
 			{
 				"operation": "merge",
+				"name": "SaveButton",
+				"values": {
+					"size": "large",
+					"iconPosition": "only-text"
+				}
+			},
+			{
+				"operation": "merge",
 				"name": "CancelButton",
 				"values": {
 					"color": "default",
@@ -185,7 +193,8 @@ define("UsrYacht_FormPage", /**SCHEMA_DEPS*/[]/**SCHEMA_DEPS*/, function/**SCHEM
 					"visible": true,
 					"readonly": false,
 					"placeholder": "",
-					"valueDetails": null
+					"valueDetails": "$Status_ValueDetails",
+					"secondaryDisplayValue": "Description"
 				},
 				"parentName": "GeneralInfoTabContainer",
 				"propertyName": "items",
@@ -267,7 +276,7 @@ define("UsrYacht_FormPage", /**SCHEMA_DEPS*/[]/**SCHEMA_DEPS*/, function/**SCHEM
 			},
 			{
 				"operation": "insert",
-				"name": "Number",
+				"name": "ManagerEmail",
 				"values": {
 					"layoutConfig": {
 						"column": 2,
@@ -275,15 +284,14 @@ define("UsrYacht_FormPage", /**SCHEMA_DEPS*/[]/**SCHEMA_DEPS*/, function/**SCHEM
 						"row": 3,
 						"rowSpan": 1
 					},
-					"type": "crt.Input",
-					"label": "$Resources.Strings.PDS_UsrNumber_uo72qt5",
-					"control": "$PDS_UsrNumber_uo72qt5",
+					"type": "crt.EmailInput",
+					"label": "#ResourceString(ManagerEmail_label)#",
+					"control": "$PDS_UsrManagerEmail_ol54n7a",
 					"placeholder": "",
 					"tooltip": "",
 					"readonly": true,
 					"multiline": false,
-					"labelPosition": "auto",
-					"visible": true
+					"labelPosition": "auto"
 				},
 				"parentName": "GeneralInfoTabContainer",
 				"propertyName": "items",
@@ -320,12 +328,36 @@ define("UsrYacht_FormPage", /**SCHEMA_DEPS*/[]/**SCHEMA_DEPS*/, function/**SCHEM
 			},
 			{
 				"operation": "insert",
-				"name": "City",
+				"name": "Number",
 				"values": {
 					"layoutConfig": {
 						"column": 2,
 						"colSpan": 1,
 						"row": 4,
+						"rowSpan": 1
+					},
+					"type": "crt.Input",
+					"label": "$Resources.Strings.PDS_UsrNumber_uo72qt5",
+					"control": "$PDS_UsrNumber_uo72qt5",
+					"placeholder": "",
+					"tooltip": "",
+					"readonly": true,
+					"multiline": false,
+					"labelPosition": "auto",
+					"visible": true
+				},
+				"parentName": "GeneralInfoTabContainer",
+				"propertyName": "items",
+				"index": 7
+			},
+			{
+				"operation": "insert",
+				"name": "City",
+				"values": {
+					"layoutConfig": {
+						"column": 2,
+						"colSpan": 1,
+						"row": 5,
 						"rowSpan": 1
 					},
 					"type": "crt.ComboBox",
@@ -345,7 +377,7 @@ define("UsrYacht_FormPage", /**SCHEMA_DEPS*/[]/**SCHEMA_DEPS*/, function/**SCHEM
 				},
 				"parentName": "GeneralInfoTabContainer",
 				"propertyName": "items",
-				"index": 7
+				"index": 8
 			}
 		]/**SCHEMA_VIEW_CONFIG_DIFF*/,
 		viewModelConfigDiff: /**SCHEMA_VIEW_MODEL_CONFIG_DIFF*/[
@@ -363,6 +395,15 @@ define("UsrYacht_FormPage", /**SCHEMA_DEPS*/[]/**SCHEMA_DEPS*/, function/**SCHEM
 					"PDS_UsrPrice_qw1t4iy": {
 						"modelConfig": {
 							"path": "PDS.UsrPrice"
+						},
+						"validators": {
+							"MySuperValidator": {
+								"type": "usr.DGValidator",
+								"params": {
+									"minValue": 150,
+									"message": "#ResourceString(PriceCannotBeLess)#"
+								}
+							}
 						}
 					},
 					"PDS_UsrDriveType_ynvvpx6": {
@@ -404,6 +445,15 @@ define("UsrYacht_FormPage", /**SCHEMA_DEPS*/[]/**SCHEMA_DEPS*/, function/**SCHEM
 					"PDS_UsrPassengersCount_2c51jrw": {
 						"modelConfig": {
 							"path": "PDS.UsrPassengersCount"
+						},
+						"validators": {
+							"MySuperValidator": {
+								"type": "usr.DGValidator",
+								"params": {
+									"minValue": 2,
+									"message": "#ResourceString(PassengersCountCannotBeLess)#"
+								}
+							}
 						}
 					},
 					"PDS_UsrManager_pt6pj84": {
@@ -474,6 +524,16 @@ define("UsrYacht_FormPage", /**SCHEMA_DEPS*/[]/**SCHEMA_DEPS*/, function/**SCHEM
 						"modelConfig": {
 							"path": "PDS.UsrTicketPrice"
 						}
+					},
+					"PDS_UsrManagerEmail_ol54n7a": {
+						"modelConfig": {
+							"path": "PDS.UsrManagerEmail_ol54n7a"
+						}
+					},
+					"Status_ValueDetails": {
+						"modelConfig": {
+							"path": "PDS.UsrStatusDescription"
+						}
 					}
 				}
 			},
@@ -506,7 +566,17 @@ define("UsrYacht_FormPage", /**SCHEMA_DEPS*/[]/**SCHEMA_DEPS*/, function/**SCHEM
 					"PDS": {
 						"type": "crt.EntityDataSource",
 						"config": {
-							"entitySchemaName": "UsrYacht"
+							"entitySchemaName": "UsrYacht",
+							"attributes": {
+								"UsrManagerEmail_ol54n7a": {
+									"path": "UsrManager.Email",
+									"type": "ForwardReference"
+								},
+								"UsrStatusDescription": {
+									"path": "UsrStatus.Description",
+									"type": "ForwardReference"
+								}
+							}
 						},
 						"scope": "page"
 					}
@@ -526,9 +596,61 @@ define("UsrYacht_FormPage", /**SCHEMA_DEPS*/[]/**SCHEMA_DEPS*/, function/**SCHEM
 					/* Call the next handler if it exists and return its result. */
 					return next?.handle(request);
 				}
+			},
+			{
+				request: "crt.HandleViewModelAttributeChangeRequest",
+				/* The custom implementation of the system query handler. */
+				handler: async (request, next) => {
+      				if (request.attributeName === 'PDS_UsrPrice_qw1t4iy' || 		        // if price changed
+					   request.attributeName === 'PDS_UsrPassengersCount_2c51jrw' ) { 		// or Passenger count changed
+						let price = await request.$context.PDS_UsrPrice_qw1t4iy;
+						let passengers = await request.$context.PDS_UsrPassengersCount_2c51jrw;
+						let ticket_price = 0;
+						if (passengers) {
+							ticket_price = price / passengers;
+						}
+						request.$context.PDS_UsrTicketPrice_uqul0a1 = ticket_price;
+					}
+					/* Call the next handler if it exists and return its result. */
+					return next?.handle(request);
+				}
 			}
+
 		]/**SCHEMA_HANDLERS*/,
 		converters: /**SCHEMA_CONVERTERS*/{}/**SCHEMA_CONVERTERS*/,
-		validators: /**SCHEMA_VALIDATORS*/{}/**SCHEMA_VALIDATORS*/
+		validators: /**SCHEMA_VALIDATORS*/{
+			/* The validator type must contain a vendor prefix.
+			Format the validator type in PascalCase. */
+			"usr.DGValidator": {
+				validator: function (config) {
+					return function (control) {
+						let value = control.value;
+						let minValue = config.minValue;
+						let valueIsCorrect = value >= minValue;
+						var result;
+						if (valueIsCorrect) {
+							result = null;
+						} else {
+							result = {
+								"usr.DGValidator": { 
+									message: config.message
+								}
+							};
+						}
+						return result;
+					};
+				},
+				params: [
+					{
+						name: "minValue"
+					},
+					{
+						name: "message"
+					}
+				],
+				async: false
+			}
+
+		}/**SCHEMA_VALIDATORS*/
 	};
 });

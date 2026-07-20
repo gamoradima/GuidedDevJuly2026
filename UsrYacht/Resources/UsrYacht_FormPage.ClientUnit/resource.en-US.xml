@@ -3,6 +3,10 @@
 	<Group Type="String">
 		<Items>
 			<Item Name="Caption" Value="Yachts form page" />
+			<Item Name="LocalizableStrings.Input_r2us5q9_label.Value" Value="Text" />
+			<Item Name="LocalizableStrings.ManagerEmail_label.Value" Value="Manager email" />
+			<Item Name="LocalizableStrings.PassengersCountCannotBeLess.Value" Value="Passengers count cannot be less than 2." />
+			<Item Name="LocalizableStrings.PriceCannotBeLess.Value" Value="Price cannot be less than 150 EUR." />
 			<Item Name="LocalizableStrings.PushMeButton_caption.Value" Value="Push me!" />
 			<Item Name="LocalizableStrings.addRecord_84q5400_caption.Value" Value="Add new" />
 			<Item Name="LocalizableStrings.addRecord_d7msnsy_caption.Value" Value="Add new" />

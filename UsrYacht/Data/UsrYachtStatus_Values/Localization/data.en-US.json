@@ -15,7 +15,7 @@
         {
           "SchemaColumnUId": "9e53fd7c-dde4-4502-a64c-b9e34148108b",
           "ColumnName": "Description",
-          "Value": ""
+          "Value": "Totally lost, can not be restored"
         }
       ]
     },
@@ -34,7 +34,7 @@
         {
           "SchemaColumnUId": "9e53fd7c-dde4-4502-a64c-b9e34148108b",
           "ColumnName": "Description",
-          "Value": ""
+          "Value": "Yacht can be rented"
         }
       ]
     },
@@ -53,7 +53,7 @@
         {
           "SchemaColumnUId": "9e53fd7c-dde4-4502-a64c-b9e34148108b",
           "ColumnName": "Description",
-          "Value": ""
+          "Value": "Yacht is temporary unavailable for rent"
         }
       ]
     }
