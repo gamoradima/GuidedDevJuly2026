@@ -1,0 +1,10 @@
+﻿{
+  "Descriptor": {
+    "UId": "9bd330c8-4d20-4ff6-93b8-ced52d8e8a4f",
+    "Name": "UsrGetCompaniesDataMainProcess",
+    "ModifiedOnUtc": "\/Date(1784889271000)\/",
+    "ManagerName": "ProcessSchemaManager",
+    "Caption": "Get compaines data main process",
+    "DependsOn": []
+  }
+}
